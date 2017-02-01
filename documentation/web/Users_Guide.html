@@ -1,0 +1,841 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./UncertaintyEstimatorUsersGuide_files/filelist.xml">
+<title>9-3-02</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Justin Goodman</o:Author>
+  <o:Template>Normal</o:Template>
+  <o:LastAuthor>Justin Goodman</o:LastAuthor>
+  <o:Revision>2</o:Revision>
+  <o:TotalTime>684</o:TotalTime>
+  <o:Created>2002-09-05T18:15:00Z</o:Created>
+  <o:LastSaved>2002-09-05T18:15:00Z</o:LastSaved>
+  <o:Pages>7</o:Pages>
+  <o:Words>2882</o:Words>
+  <o:Characters>16431</o:Characters>
+  <o:Company>College of Forestry</o:Company>
+  <o:Lines>136</o:Lines>
+  <o:Paragraphs>32</o:Paragraphs>
+  <o:CharactersWithSpaces>20178</o:CharactersWithSpaces>
+  <o:Version>9.4402</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h1
+	{mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:16.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-font-kerning:0pt;}
+h2
+	{mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+h3
+	{mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:3;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	font-weight:normal;
+	font-style:italic;}
+h4
+	{mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	text-indent:.5in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:4;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+h5
+	{mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:5;
+	font-size:14.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:"Times New Roman";}
+h6
+	{mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:6;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+p.MsoBodyTextIndent, li.MsoBodyTextIndent, div.MsoBodyTextIndent
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 45.0pt 1.0in .75in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:42142657;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-81744926 11966518 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l0:level1
+	{mso-level-start-at:0;
+	mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	font-family:Symbol;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+</head>
+
+<body lang=EN-US style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<p class=MsoNormal>9-3-02</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<h1 align=center style='text-align:center'><span style='font-size:18.0pt;
+mso-bidi-font-size:12.0pt'>Uncertainty Estimator User’s Guide<o:p></o:p></span></h1>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<h5>Background</h5>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>            </span>In any
+quantitative experiment or study involving calculations, the propagation of
+error through the calculations is of considerable importance.<span
+style="mso-spacerun: yes">  </span>If we were to calculate speed by measuring a
+distance traveled and the associated elapsed time, our computed speed would
+have an associated uncertainty that would depend on the uncertainty of the two
+actually measured quantities.<span style="mso-spacerun: yes">  </span>In such a
+simple case, generating quantitative claims about the probable accuracy of the
+speed we compute would not be difficult.<span style="mso-spacerun: yes"> 
+</span>So long as only simple mathematical operations are used in a calculation
+and so long as one can assume a roughly normal distribution of error for
+uncorrelated measurements, there exist relatively simple formulas for
+propagating uncertainties through a calculation.<span style="mso-spacerun:
+yes">  </span>Once we stray from these simple cases, however, the propagation
+of uncertainty becomes more challenging. </p>
+
+<p class=MsoNormal style='text-indent:.5in'>It is certainly true that the realm
+of significant calculations extends beyond the simple cases adhering to the
+above assumptions.<span style="mso-spacerun: yes">  </span>We can imagine a
+calculation involving two measurements that are correlated with one-another, or
+perhaps we wish to perform a calculation involving a measurement that we know
+to have a negative exponential, not normal uncertainty distribution.<span
+style="mso-spacerun: yes">  </span>Perhaps the calculation we wish to perform
+is a regression involving measured parameters and a free variable.<span
+style="mso-spacerun: yes">  </span>Perhaps one of the parameters we wish to use
+in a calculation is something that is not easily measured and therefore an
+expert opinion with an associated probable range must be used instead.<span
+style="mso-spacerun: yes">  </span>For these cases, the simple error
+propagation methods mentioned above may be inappropriate either because of
+contradictions of assumptions or because the calculations would simply be too
+tedious.<span style="mso-spacerun: yes">  </span>This presents a problem
+because a calculated value is of little use unless we can give some sort of
+indication of how close that value is to the real value.<span
+style="mso-spacerun: yes">  </span>This problem is exactly what the uncertainty
+estimator was designed to address.</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><b><span style='font-size:14.0pt;mso-bidi-font-size:12.0pt'>Description</span></b>
+</p>
+
+<p class=MsoNormal style='text-indent:.5in'>Put concisely, the uncertainty
+estimator is a tool to create a sample space of parameters and convey requested
+information about the distribution of those parameters to the user.<span
+style="mso-spacerun: yes">  </span>This is best illustrated by an example: We
+will use a high-school as our sample space, where each student is a
+sample.<span style="mso-spacerun: yes">  </span>The sample space has
+parameters: height, age, sex, etc.<span style="mso-spacerun: yes">  </span>Some
+of these parameters can be described by distribution types - for example, we
+may be able to describe age as a uniform distribution over the interval 14 to
+18.<span style="mso-spacerun: yes">  </span>We may declare weight to be 140lbs
+with normal distribution and standard deviation of 20lbs.<span
+style="mso-spacerun: yes">  </span>There may be parameters that can be
+described as functions of other parameters.<span style="mso-spacerun: yes"> 
+</span>Perhaps running speed can be described as some function of age, height,
+sex, and athleticism.<span style="mso-spacerun: yes">  </span>Once these
+parameters are established as general distribution types and functions of
+distribution types, we may wish to know the standard deviation of a certain
+parameter or perhaps see a histogram of that parameter.<span
+style="mso-spacerun: yes">  </span>We may wish to see the raw values of a given
+parameter for external use or for comparison with real measured numbers to
+check the accuracy of proposed functions.</p>
+
+<p class=MsoNormal style='text-indent:.5in'>This series of parameter
+definitions and queries would be input to the uncertainty estimator via an
+appropriate input file.<span style="mso-spacerun: yes">  </span>The user is
+responsible for creating such an input file.<span style="mso-spacerun: yes"> 
+</span>The uncertainty estimator then reads the input file and utilizes Monte
+Carlo methods to simulate repeated samplings from the input distribution types
+to create the sample space.<span style="mso-spacerun: yes">  </span>Parameters
+that are themselves functions of other parameters are generated by repeatedly
+performing their particular function on random samples of the parameters on
+which the function depends.</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<h2><span style='font-size:14.0pt;mso-bidi-font-size:12.0pt'>The input file<o:p></o:p></span></h2>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>            </span>Uncertainty
+Estimator takes an input file name as a command-line argument.<span
+style="mso-spacerun: yes">  </span>This will be the file it will evaluate.<span
+style="mso-spacerun: yes">  </span>The input file is made up of a discrete set
+of possible actions (one per line) that will be performed in the order they
+occur on the file.<span style="mso-spacerun: yes">  </span>In addition to
+actions, there can be properly formatted user-comments in the input file that
+will be disregarded by the uncertainty estimator.<span style="mso-spacerun:
+yes">  </span></p>
+
+<p class=MsoNormal style='text-indent:.5in'>Line comments start with the “&gt;”
+sign.<span style="mso-spacerun: yes">  </span>Anything occurring on a line that
+begins with “&gt;” will be disregarded by the uncertainty estimator.<span
+style="mso-spacerun: yes">  </span></p>
+
+<p class=MsoNormal style='text-indent:.5in'>The actual actions fall into three
+basic types: initialization actions, parameter actions, and query actions.</p>
+
+<p class=MsoNormal><b><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></b></p>
+
+<p class=MsoNormal><b>Initialization Actions</b> are the most rigidly formatted
+actions.<span style="mso-spacerun: yes">  </span>There are two initialization
+actions and they must be in the correct order, they must be the very first
+actions in the input file, and they (unlike the other actions) are
+case-sensitive.<span style="mso-spacerun: yes">  </span>The following are the
+two initialization actions, along with examples:</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<h6>Seed <i><span style='font-weight:normal'>seedNumber</span></i></h6>
+
+<p class=MsoNormal style='margin-left:.5in'>Seed is the first action.<span
+style="mso-spacerun: yes">  </span>Our pseudo-random number generator needs an
+odd integer with which to seed itself.<span style="mso-spacerun: yes"> 
+</span>The number following the keyword “Seed” can be any odd integer between 1
+and 1,000,000.<span style="mso-spacerun: yes">  </span>Here is an example:</p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:.5in'>Seed 1283</p>
+
+<p class=MsoNormal><b><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></b></p>
+
+<h6>SampleSpaceSize <i><span style='font-weight:normal'>size</span></i></h6>
+
+<p class=MsoBodyTextIndent>SampleSpaceSize must be the second action of the
+input file.<span style="mso-spacerun: yes">  </span>In order to generate a
+sample space with parameters, we must know how big the sample space is.<span
+style="mso-spacerun: yes">  </span>The number following the keyword
+“SampleSpaceSize” is the desired size.<span style="mso-spacerun: yes"> 
+</span>This number must be a positive integer between 2 and 1,000,000.<span
+style="mso-spacerun: yes">  </span>In the interest of quick computations, it is
+recommended that the user restrict himself to sizes &lt;= 100,000.<span
+style="mso-spacerun: yes">  </span>Larger sizes may be attempted, but the run
+time of the program may get to be quite long.<span style="mso-spacerun: yes"> 
+</span>Example of SampleSpaceSize action:</p>
+
+<p class=MsoBodyTextIndent style='text-indent:.5in'>SampleSpaceSize 1000</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<h2>Parameter Actions<span style='font-weight:normal'> are those that create or
+modify the parameters of the sample space.<span style="mso-spacerun: yes"> 
+</span>The following is a list of all the different types of parameter actions
+along with examples for each:<o:p></o:p></span></h2>
+
+<h2><span style='mso-tab-count:1'>            </span></h2>
+
+<h2><span style='mso-tab-count:1'>            </span><i><span style='mso-bidi-font-size:
+10.0pt;font-weight:normal'>parameterName</span></i><span style='mso-bidi-font-size:
+10.0pt'> = Uniform(</span><i><span style='mso-bidi-font-size:10.0pt;font-weight:
+normal'>lowerBound</span></i><span style='mso-bidi-font-size:10.0pt'>, </span><i><span
+style='mso-bidi-font-size:10.0pt;font-weight:normal'>upperBound</span></i><span
+style='mso-bidi-font-size:10.0pt'>)<o:p></o:p></span></h2>
+
+<p class=MsoNormal style='margin-left:.5in'>This action creates a new parameter
+named <i>parameterName</i> that has uniformly distributed samples over the
+interval <i>lowerBound</i> to <i>upperBound</i>.<span style="mso-spacerun:
+yes">  </span>For this action, the “=” sign and the word “uniform” are the
+keywords.<span style="mso-spacerun: yes">  </span><i>parameterName</i> could be
+any valid* <i>parameterName</i> and the two numbers, separated by commas and
+enclosed in parentheses can be any real numbers provided the first is smaller
+than the second.<span style="mso-spacerun: yes">  </span>Example:</p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:.5in'>Var1 = Uniform(4,
+4.9)</p>
+
+<h2><span style='mso-bidi-font-size:10.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></h2>
+
+<h2 style='text-indent:.5in'><i><span style='mso-bidi-font-size:10.0pt;
+font-weight:normal'>parameterName</span></i><span style='mso-bidi-font-size:
+10.0pt'> = Triangular(</span><i><span style='mso-bidi-font-size:10.0pt;
+font-weight:normal'>lowerBound, mode, upperBound</span></i><span
+style='mso-bidi-font-size:10.0pt'>)<o:p></o:p></span></h2>
+
+<p class=MsoNormal style='margin-left:.5in'>This action creates a new parameter
+named <i>parameterName</i> that has samples consistent with a triangular
+distribution with <i>lower bound, mode, and upper bound </i>as specified.<span
+style="mso-spacerun: yes">  </span>The keywords/format follow the example for
+uniform.<span style="mso-spacerun: yes">  </span>Restrictions for this action
+are that the <i>parameterName</i> must be valid* and we must have real numbers <i>lowerBound</i>
+&lt;= <i>mode</i> &lt;= <i>upperBound</i>.<span style="mso-spacerun: yes"> 
+</span>Example:</p>
+
+<p class=MsoNormal style='text-indent:.5in'><span style='mso-tab-count:1'>            </span><span
+style='mso-bidi-font-size:10.0pt'>LiveMax = Triangular(96.1, 99, 100)</span><span
+style='mso-tab-count:1'>         </span></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<h2><span style='mso-tab-count:1'>            </span><i><span style='font-weight:
+normal'>parameterName</span></i> = NegativeExponential(<i><span
+style='font-weight:normal'>lowerBound, standardDeviation</span></i>)</h2>
+
+<p class=MsoBodyTextIndent>This action creates a parameter named <i>parameterName</i>
+that has samples consistent with a negative exponential distribution with <i>lowerBound</i>
+and <i>standardDeviation</i> as specified.<span style="mso-spacerun: yes"> 
+</span>Keywords/format are as above.<span style="mso-spacerun: yes"> 
+</span>Restrictions are that the <i>parameterName</i> must be valid* and the
+numbers must be real.<span style="mso-spacerun: yes">  </span>Example:</p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:.5in'>VarIAblE =
+NegativeExponential(5.1, 3.2)</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='margin-left:.5in'><i>parameterName</i> <b>= Normal(</b><i>mode,
+standardDeviation</i><b>)</b></p>
+
+<p class=MsoBodyTextIndent>This action creates a parameter named <i>parameterNam</i><span
+style="mso-spacerun: yes">  </span>that has samples drawn from a normal
+distribution with <i>mode</i> and <i>standardDeviation</i> as specified.<span
+style="mso-spacerun: yes">  </span>Keywords/format/restrictions are as
+above.<span style="mso-spacerun: yes">  </span>Example:</p>
+
+<p class=MsoBodyTextIndent style='text-indent:.5in'>Var = Normal(3, 1)</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='margin-left:.5in'><i>param1</i>, <i>param2</i><b> =
+NormalBivariates(</b><i>correlation, param1mode, param1stdDev, param2mode, <o:p></o:p></i></p>
+
+<p class=MsoNormal style='margin-left:5.5in;text-indent:.5in'><i>param2stdDev)<o:p></o:p></i></p>
+
+<p class=MsoNormal style='margin-left:.5in'>This action creates two parameters
+– one named <i>param1</i> and the other named <i>param2</i>.<span
+style="mso-spacerun: yes">  </span>These parameters are drawn as though from
+normal distributions with <i>correlation</i>, <i>modes</i> and <i>standardDeviation</i>s
+as specified.<span style="mso-spacerun: yes">  </span><i>param1</i>and <i>param2</i>
+must be valid parameter names separated by a comma and <i>correlation</i> must
+be a real number between –1 and 1.<span style="mso-spacerun: yes">  </span>Note
+– though the action occupies two lines above, it must be on one line in the
+.txt input file.<span style="mso-spacerun: yes">  </span>Example:</p>
+
+<p class=MsoBodyTextIndent style='text-indent:.5in'>b1, b2 =
+NormalBivariates(.5, .015, .001, 2, .1)</p>
+
+<p class=MsoBodyTextIndent style='margin-left:0in'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoBodyTextIndent><i>parameterName </i><b>= </b><i>functionOfOtherParamsNums<o:p></o:p></i></p>
+
+<p class=MsoBodyTextIndent>This action creates a parameter named <i>parameterName</i>
+that is drawn from a valid* function of other parameters and/or numbers.<span
+style="mso-spacerun: yes">  </span>Example:</p>
+
+<p class=MsoBodyTextIndent style='text-indent:.5in'>b3 = ln(LiveMax *
+(1-e^(-b1))^b2)</p>
+
+<p class=MsoBodyTextIndent style='margin-left:0in'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoBodyTextIndent><b>rankCorrelate(</b><i>param1, param2, rankCorr,
+method</i><b>)<o:p></o:p></b></p>
+
+<p class=MsoBodyTextIndent>This action produces a rank correlation of <i>rankCorr</i>
+in any two defined parameters <i>param1 </i>and <i>param2</i>.<span
+style="mso-spacerun: yes">  </span>There are two different <i>method</i>s for
+this operation: “grow” and “decay”.<span style="mso-spacerun: yes"> 
+</span>These names have more to do with the implementation than the produced
+correlation.<span style="mso-spacerun: yes">  </span>Try both and look at the
+differing scatter-plot spreads produced to get a feel for the difference
+(“grow” should produce a more uniform spread, whereas “decay” should yield a
+spread that looks somewhat normally distributed about an imaginary spline of
+best fit for the graph).<span style="mso-spacerun: yes">  </span>It may be the
+case that neither is appropriate for the data set that the user has in mind.<span
+style="mso-spacerun: yes">  </span>The user should be aware that rank
+correlation is not the same as the more common correlation coefficient, though
+a high rank correlation implies a high correlation coefficient.<span
+style="mso-spacerun: yes">  </span>The reason rank correlation is used instead
+is that it is better suited to describing correlation of parameters which may
+come from different distribution types.<span style="mso-spacerun: yes"> 
+</span>In fact, certain combinations of correlation coefficients, and
+distribution types are logically impossible.<span style="mso-spacerun: yes"> 
+</span>Try to imagine a uniform distribution and a negative exponential
+distribution that have a correlation coefficient of 1.<span
+style="mso-spacerun: yes">  </span>Example rankCorrelate call:</p>
+
+<p class=MsoBodyTextIndent style='text-indent:.5in'>rankCorrelate(LiveMax, b2,
+-.78, grow)</p>
+
+<p class=MsoBodyTextIndent style='margin-left:0in'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoBodyTextIndent style='margin-left:0in'><b>Queriers</b> return
+information about the sample space.<span style="mso-spacerun: yes"> 
+</span>This may come in the form of returning the average value of a parameter
+or it may involve the generation of regression points for some function
+involving multiple parameters.<span style="mso-spacerun: yes">  </span>One
+thing is constant among queriers: they do not alter the sample space in any
+way.<span style="mso-spacerun: yes">  </span>This means they do not add,
+remove, or alter any of the parameters.<span style="mso-spacerun: yes"> 
+</span>The following is a list of the querier actions and examples.</p>
+
+<p class=MsoBodyTextIndent style='margin-left:0in'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoBodyTextIndent style='margin-left:0in'><span style='mso-tab-count:
+1'>            </span><b>StandardDeviation(</b><i>parameterName</i><b>)</b><i><o:p></o:p></i></p>
+
+<p class=MsoBodyTextIndent>This action returns the standard deviation of the
+defined sample space parameter <i>parameterName</i>.<span style="mso-spacerun:
+yes">  </span>Example:</p>
+
+<p class=MsoBodyTextIndent style='text-indent:.5in'>StandardDeviation(LiveMax)</p>
+
+<p class=MsoBodyTextIndent><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoBodyTextIndent><b>Mean(</b><i>parameterName</i><b>)</b></p>
+
+<p class=MsoBodyTextIndent>This action returns the mean value of the defined
+sample space parameter <i>parameterName</i>.<span style="mso-spacerun: yes"> 
+</span>Example:</p>
+
+<p class=MsoBodyTextIndent style='text-indent:.5in'>Mean(LiveMax)</p>
+
+<p class=MsoBodyTextIndent><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoBodyTextIndent><b>Median(</b><i>parameterName</i><b>)</b></p>
+
+<p class=MsoBodyTextIndent>This action returns the median value of the defined
+sample space parameter <i>parameterName</i>.<span style="mso-spacerun: yes"> 
+</span>Example:</p>
+
+<p class=MsoBodyTextIndent style='text-indent:.5in'>Median(LiveMax)</p>
+
+<p class=MsoBodyTextIndent><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoBodyTextIndent><b>Correlation(</b><i>param1, param2</i><b>)<o:p></o:p></b></p>
+
+<p class=MsoBodyTextIndent>This action returns the correlation coefficient of
+the defined sample space parameters <i>param1 </i>and <i>param2</i>.<span
+style="mso-spacerun: yes">  </span>Example:</p>
+
+<p class=MsoBodyTextIndent style='text-indent:.5in'>Correlation(LiveMax, b2)</p>
+
+<p class=MsoBodyTextIndent><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoBodyTextIndent><b>RankCorrelation(</b><i>param1, param2</i><b>)</b></p>
+
+<p class=MsoBodyTextIndent>This action returns the rank correlation coefficient
+of the defined sample space parameters <i>param1 </i>and <i>param2</i>.<span
+style="mso-spacerun: yes">  </span>Example:</p>
+
+<p class=MsoBodyTextIndent style='text-indent:.5in'>RankCorrelation(LiveMax,
+b2)</p>
+
+<p class=MsoBodyTextIndent><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoBodyTextIndent><b>PercentileBounds(</b><i>parameterName, percentile</i><b>)</b></p>
+
+<p class=MsoBodyTextIndent>This action returns the two values that enclose the
+middle <i>percentile</i> percent of the values in sample space parameter <i>parameterName</i>.<span
+style="mso-spacerun: yes">  </span>Note that this may involve a weighted average
+of two samples for both the upper and lower bound – so the values returned may
+or may not actually occur in the sample space.<span style="mso-spacerun: yes"> 
+</span>Example:</p>
+
+<p class=MsoBodyTextIndent style='text-indent:.5in'>PercentileBounds(LiveMax,
+50.5)</p>
+
+<p class=MsoBodyTextIndent><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoBodyTextIndent><b>ValsToCSV(</b><i>paramNameList,</i><b> &quot;</b><i>fileName</i><b>&quot;)</b></p>
+
+<p class=MsoBodyTextIndent>This action sends the values of the sample space
+parameters in <i>paramNameList</i> to a .csv file named <i>fileName</i>.<span
+style="mso-spacerun: yes">  </span><i>ParamNameList</i> must be a series of
+defined parameter names, separated by commas.<span style="mso-spacerun: yes"> 
+</span><i>fileName</i> must be enclosed in quotation marks and should end in
+“.csv” since it will be a comma separated value file (intended to be opened
+with Excel).<span style="mso-spacerun: yes">  </span>Example:</p>
+
+<p class=MsoBodyTextIndent style='text-indent:.5in'>ValsToCSV(LiveMax, b1, b2,
+Var1, &quot;vals.csv&quot;)</p>
+
+<p class=MsoBodyTextIndent><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoBodyTextIndent><b>Histogramize(</b><i>paramName, boxes,
+excludedTailPercent,</i><b> &quot;</b><i>fileName</i><b>&quot;)<o:p></o:p></b></p>
+
+<p class=MsoBodyTextIndent>This action creates a histogram of the valid sample
+space parameter <i>paramName</i>.<span style="mso-spacerun: yes">  </span>The
+histogram comes in the form of a .csv file named <i>filename</i> which should
+end in “.csv” and is intended to be viewed with Excel.<span
+style="mso-spacerun: yes">  </span><i>boxes </i>is the number of boxes/bins to
+use in the histogram.<span style="mso-spacerun: yes">  </span><i>excludedTailPercent</i>
+is the percent of extreme values in <i>paramName</i> to leave out of the
+histogram.<span style="mso-spacerun: yes">  </span>For example, if <i>excludedTailPercent</i>
+were 5, the histogram would not account for the lowest 2.5% or the highest 2.5%
+of the values in <i>paramName</i>.<span style="mso-spacerun: yes">  </span><i>excludedTailPercent</i>
+should be set to 0 for most cases, however, when a parameter has very long, sparse
+tails, leaving out a small portion of the tail values can make the histogram
+show more detail about more densely populated regions.<span
+style="mso-spacerun: yes">  </span>Obviously, <i>excludedTailPercent</i> must
+be between 0 and 100. Examples:</p>
+
+<p class=MsoBodyTextIndent style='margin-left:1.0in'>Histogramize(VarIAblE, 20,
+0, &quot;histWithTails.csv&quot;)</p>
+
+<p class=MsoBodyTextIndent style='margin-left:1.0in'>Histogramize(VarIAblE, 20,
+5, &quot;histMinus5%Tails.csv&quot;)</p>
+
+<p class=MsoBodyTextIndent><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoBodyTextIndent><b>Regression(</b><i>functionOfParamsAndT, tStart,
+tFinish, steps,</i> <b>&quot;</b><i>fileName</i><b>&quot;)</b></p>
+
+<p class=MsoBodyTextIndent>This action creates a comma separated value file
+named <i>fileName </i>with the raw results of performing regression equation <i>functionOfParamsAndT</i>
+on the sample space parameters mentioned in <i>functionOfParamsAndT</i>.<span
+style="mso-spacerun: yes">  </span><i>functionOfParamsAndT</i> can be any
+well-formed function that involves the free variable “T”.<span
+style="mso-spacerun: yes">  </span>“T” is the hard-wired name of the
+free-variable in a regression equation and no other name will be accepted.<span
+style="mso-spacerun: yes">  </span>Regression works by evaluating <i>functionOfParamsAndT</i>
+for each set of parameter samples at <i>steps</i> + 1 discrete (and evenly
+spaced) T-values, starting at <i>tStart</i> and finishing at <i>tFinish</i>.<span
+style="mso-spacerun: yes">  </span><i>filename</i> will have two columns; the
+first will have free-variable values and the second will have solutions to <i>functionOfParamsAndT</i>
+for those free-variable values.<span style="mso-spacerun: yes">  </span>With a
+large sample space size and a large <i>steps</i> value, this file can be very
+large and take a long time to create.<span style="mso-spacerun: yes"> 
+</span>Since Excel will not open entire files with more than 65,536 rows, it is
+senseless to have sampleSpaceSize * (<i>steps</i> + 1)<span
+style="mso-spacerun: yes">  </span>&gt; 65,000 unless you have another graphics
+program that reads larger .csv files.<span style="mso-spacerun: yes"> 
+</span>Example: </p>
+
+<p class=MsoBodyTextIndent style='text-indent:.5in'>Regression(LiveMax *
+(1-e^(-b1*t))^b2, 0, 400, 50, &quot;regress.csv&quot;)</p>
+
+<p class=MsoBodyTextIndent><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoBodyTextIndent><b>RegressionPercentiles(</b><i>functionOfParamsAndT,
+tStart, tFinish, steps,</i> <b>(</b><i>percentiles</i><b>), &quot;</b><i>fileName</i><b>&quot;)<o:p></o:p></b></p>
+
+<p class=MsoBodyTextIndent>This action is just as Regression only it takes
+another input – a list of comma-separated percentiles, <i>percentiles</i>,
+enclosed in parentheses.<span style="mso-spacerun: yes">  </span>Rather than
+return the computed results for each set of parameter samples for each T-value,
+the enclosing values (at each T-value) for each percentile requested are
+returned in the .csv file.<span style="mso-spacerun: yes">  </span>For example,
+a value of 20 in the percentile list requests the values that enclose the
+middle 20% of all result values at each T-value.<span style="mso-spacerun:
+yes">  </span>A value of 0 in the percentile list requests the median for each
+T-value.<span style="mso-spacerun: yes">  </span>Though RegressionPercentiles
+involves many more calculations (due to calculating the percentiles) than
+Regression, the output file may be much smaller.<span style="mso-spacerun:
+yes">  </span>It therefore can accommodate larger sample space sizes in
+conjunction with large values of <i>steps.</i><span style="mso-spacerun: yes"> 
+</span>Furthermore, with well-chosen <i>percentiles</i> values,
+RegressionPercentiles can give a better picture of the distribution of values in
+the regression results.<span style="mso-spacerun: yes">  </span>Example (Note –
+though the action occupies two lines below, it must be on one line in the .txt
+input file.):</p>
+
+<p class=MsoBodyTextIndent style='margin-left:1.0in'>RegressionPercentiles(
+LiveMax * (1-e^(-b1*t))^b2, 0, 400, 50, (0,25,50,75.0,100), </p>
+
+<p class=MsoBodyTextIndent style='margin-left:4.0in;text-indent:.5in'>&quot;regressPercentiles.csv&quot;)</p>
+
+<p class=MsoBodyTextIndent><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoBodyTextIndent style='margin-left:0in'><b>Valid Parameter Names</b>:</p>
+
+<p class=MsoBodyTextIndent style='margin-left:0in'><b><span style='mso-tab-count:
+1'>            </span></b>Parameter names must start with a letter, but can
+contain numbers and other symbols after the first character.<span
+style="mso-spacerun: yes">  </span>No action keywords (normal, regression, etc)
+or constant names (e and pi) may be used as parameter names.<span
+style="mso-spacerun: yes">  </span>Additionally, the name “T” is reserved for
+the free variable name in regression equations.</p>
+
+<p class=MsoBodyTextIndent style='margin-left:0in'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoBodyTextIndent style='margin-left:0in'><b>Valid Functions</b>:</p>
+
+<p class=MsoBodyTextIndent style='margin-left:0in'><span style='mso-tab-count:
+1'>            </span>Assignment functions and regression functions are
+identical except in one regard: regression functions should involve the
+free-variable “T” and assignment functions should not.<span
+style="mso-spacerun: yes">  </span>Outside of these restrictions, a valid
+function can be any well-formed function involving defined parameter names,
+numbers, constants (e and pi), parentheses, +, -, *, /, ^, log10, and ln.<span
+style="mso-spacerun: yes">  </span></p>
+
+<p class=MsoBodyTextIndent style='margin-left:0in'><span style="mso-spacerun:
+yes"> </span></p>
+
+<p class=MsoBodyTextIndent style='margin-left:0in'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoBodyTextIndent style='margin-left:0in'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoBodyTextIndent style='margin-left:0in'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoBodyTextIndent style='margin-left:0in'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoBodyTextIndent style='margin-left:0in'>The following is a <b>compilation
+of the examples used to define the actions</b>.<span style="mso-spacerun:
+yes">  </span>It can be copied and pasted into a text file for use by the
+uncertainty estimator.</p>
+
+<p class=MsoBodyTextIndent style='margin-left:0in'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoBodyTextIndent>&gt;------------------------------------------------------------------------</p>
+
+<p class=MsoBodyTextIndent>&gt;A sample file for uncertainty
+estimator---------------------------------</p>
+
+<p class=MsoBodyTextIndent>&gt;------------------------------------------------------------------------</p>
+
+<p class=MsoBodyTextIndent><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoBodyTextIndent>Seed 1283</p>
+
+<p class=MsoBodyTextIndent><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoBodyTextIndent>SampleSpaceSize 1000</p>
+
+<p class=MsoBodyTextIndent><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoBodyTextIndent>Var1 = Uniform(4, 4.9)</p>
+
+<p class=MsoBodyTextIndent>LiveMax = Triangular(96.1, 99, 100)<span
+style='mso-tab-count:1'>     </span></p>
+
+<p class=MsoBodyTextIndent>VarIAblE = NegativeExponential<span
+style="mso-spacerun: yes">   </span>(5.1, 3.2)</p>
+
+<p class=MsoBodyTextIndent>Var = Normal(3, 1)</p>
+
+<p class=MsoBodyTextIndent>b1, b2 = NormalBivariates(.5, .015, .001, 2, .1)</p>
+
+<p class=MsoBodyTextIndent>b3 = ln(LiveMax * (1-e^(-b1))^b2)</p>
+
+<p class=MsoBodyTextIndent>rankCorrelate(LiveMax, b2, -.78, grow)</p>
+
+<p class=MsoBodyTextIndent>StandardDeviation(LiveMax)</p>
+
+<p class=MsoBodyTextIndent>Mean(LiveMax)</p>
+
+<p class=MsoBodyTextIndent>Median(LiveMax)</p>
+
+<p class=MsoBodyTextIndent>Correlation(LiveMax, b2)</p>
+
+<p class=MsoBodyTextIndent>RankCorrelation(LiveMax, b2)</p>
+
+<p class=MsoBodyTextIndent>PercentileBounds(LiveMax, 50.5)</p>
+
+<p class=MsoBodyTextIndent>ValsToCSV(LiveMax, b1, b2, Var1,
+&quot;vals.csv&quot;)</p>
+
+<p class=MsoBodyTextIndent>Histogramize(VarIAblE, 20, 0,
+&quot;histWithTails.csv&quot;)</p>
+
+<p class=MsoBodyTextIndent>Histogramize(VarIAblE, 20, 5,
+&quot;histMinus5%Tails.csv&quot;)</p>
+
+<p class=MsoBodyTextIndent>Regression(LiveMax * (1-e^(-b1*T))^b2, 0, 400, 50,
+&quot;regress.csv&quot;)</p>
+
+<p class=MsoBodyTextIndent>RegressionPercentiles( LiveMax * (1-e^(-b1*t))^b2,
+0, 400, 50, (0,25,50,75.0,100), &quot;regressPercentiles.csv&quot;)</p>
+
+<p class=MsoBodyTextIndent><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoBodyTextIndent style='margin-left:0in'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoBodyTextIndent style='margin-left:0in'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoBodyTextIndent style='margin-left:0in'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoBodyTextIndent style='margin-left:0in'><b><span style='font-size:
+14.0pt;mso-bidi-font-size:12.0pt'>Trouble-shooting:<o:p></o:p></span></b></p>
+
+<p class=MsoBodyTextIndent style='margin-left:0in'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoBodyTextIndent style='margin-left:0in'><b>Q</b>: Why does
+uncertainty estimator tell me there’s an error opening a file?</p>
+
+<p class=MsoBodyTextIndent style='margin-left:0in'><b>A</b>: Most likely, it’s
+Excel’s fault.<span style="mso-spacerun: yes">  </span>If a file is open in
+Excel, it can’t be written to from the uncertainty estimator.<span
+style="mso-spacerun: yes">  </span>You must close the file in Excel and re-open
+it once uncertainty estimator is done writing to it.</p>
+
+<p class=MsoBodyTextIndent style='margin-left:0in'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoBodyTextIndent style='margin-left:0in'><b>Q</b>: Why is it taking
+SO long?!</p>
+
+<p class=MsoBodyTextIndent style='margin-left:0in'><b>A</b>: Certain actions
+may involve MANY computer operations with large sample space size.<span
+style="mso-spacerun: yes">  </span>Regression and RegressionPercentiles can be
+particularly expensive this way.<span style="mso-spacerun: yes"> 
+</span>Additionally, writing to a file is a relatively slow process, so actions
+that attempt to create large files may take a long time.<span
+style="mso-spacerun: yes">  </span>Either wait it out, decrease the sample
+space size, or chose your actions carefully.</p>
+
+<p class=MsoBodyTextIndent style='margin-left:0in'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoBodyTextIndent style='margin-left:0in'><b>Q</b>: What does it mean
+if uncertainty estimator tells me there has been a math error?</p>
+
+<p class=MsoBodyTextIndent style='margin-left:0in'><b>A</b>: Math errors occur
+when the uncertainty estimator attempts an illegal or undefined math
+operation.<span style="mso-spacerun: yes">  </span>These can be encountered in
+one of two places: defining a parameter as a function of other parameters or in
+a regression function.<span style="mso-spacerun: yes">  </span>If we tried to
+define “var1” as </p>
+
+<p class=MsoBodyTextIndent style='margin-left:0in;text-indent:.5in'>var1 = var2
+/ 0</p>
+
+<p class=MsoBodyTextIndent style='margin-left:0in'>we would clearly have a
+problem; regardless of what “var2” is, we would have division by zero.<span
+style="mso-spacerun: yes">  </span>While this example may be trivially obvious,
+there do exist more insidious possibilities.<span style="mso-spacerun: yes"> 
+</span>With the abstraction of variable names representing a range and
+distribution of possible numbers, comes the surprising ease of generating math
+errors.<span style="mso-spacerun: yes">  </span>Consider the following:</p>
+
+<p class=MsoBodyTextIndent>b1, b2 = NormalBivariates(.5, .015, .008, 2, .1)</p>
+
+<p class=MsoBodyTextIndent>LiveMax = Triangular(96.1, 99, 100)</p>
+
+<p class=MsoBodyTextIndent>Regression(LiveMax * (1-e^(-b1*T))^b2, 0, 400, 50,
+&quot;regress.csv&quot;)</p>
+
+<p class=MsoBodyTextIndent style='margin-left:0in'>The above differs from
+commands entered as examples only in that “b1” has a larger standard
+deviation.<span style="mso-spacerun: yes">  </span>This larger standard deviation,
+however, makes it more likely that “b1” will be a negative number.<span
+style="mso-spacerun: yes">  </span>The regression equation would then negate
+that number (thus making it positive), multiply it by positive T, and subtract
+e to that power from one.<span style="mso-spacerun: yes">  </span>E to any
+positive power is greater than 1.<span style="mso-spacerun: yes">  </span>Thus,
+we would end up with a negative number to a fractional (provided “b2” wasn’t
+set to an integer) power, which is undefined.<span style="mso-spacerun: yes"> 
+</span>What makes this even more complicated is that this problem may or may
+not occur, depending on the sample space size and the seed.<span
+style="mso-spacerun: yes">  </span>If we only generate a sample space of size
+4, chances are good that “b1” will have all positive samples and thus, no math
+error will occur.</p>
+
+<p class=MsoBodyTextIndent style='margin-left:0in'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoBodyTextIndent style='margin-left:0in'><b>Q</b>: Why does
+uncertainty estimator tell me it can’t find a parameter?</p>
+
+<p class=MsoBodyTextIndent style='margin-left:0in'><b>A</b>: Within an input
+file, references to parameters can only occur after the parameter has been
+defined.<span style="mso-spacerun: yes">  </span>Also beware that parameter
+names are case-sensitive.<span style="mso-spacerun: yes">  </span>So if only
+“LiveMax” is defined, Uncertainty Estimator will be unable to find a parameter
+“livemax”.</p>
+
+<p class=MsoBodyTextIndent style='margin-left:0in'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoBodyTextIndent style='margin-left:0in'><b>Q</b>: What happens if I
+run an input file that causes Uncertainty Estimator to create a file and then
+run another (or the same) input file that causes a file of the same name to be
+created?</p>
+
+<p class=MsoBodyTextIndent style='margin-left:0in'><b>A</b>: The first file
+will be overwritten, so beware.</p>
+
+</div>
+
+</body>
+
+</html>

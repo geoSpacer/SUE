@@ -1,0 +1,95 @@
+Notes for checking out SUE from CVS repository
+----------------------------------------------
+
+Installed TortoiseCVS client.
+Available from http://www.tortoisecvs.org/
+
+Establish the directory (folder) which will be the top-level
+of the build dir structure.  For the rest of these instructions, this
+root folder of the build dir structure will be referred to as
+{build-dir}.
+
+Create folder {build-dir}/libs/
+Create folder {build-dir}/libs/common
+
+While viewing {build-dir}/libs/ in Windows Explorer, right-click common,
+and select CVS checkout
+
+CVSROOT:
+  :pserver:anonymous@sequoia.fsl.orst.edu:/www/htdocs/cvs/repository
+
+  Options tab - checkout dialog
+   use custom folder name "2.0"
+
+  Module: libs/common  (this is a path, there are no module names setup for libraries at this time)
+
+  Revision: branch tag: "v2-0_develop"
+  use most recent files
+
+This will checkout version 2.0 of the common library into the folder
+{build-dir}/libs/common/2.0/
+
+Go to that folder, and open the Visual C++ project file "common_lib.dsp".
+There are 4 configurations:
+    Win32 - Release
+    Win32 - Debug
+    Win32 - Release_MD
+    Win32 - Debug_MD
+The configurations that end in "_MD" are multi-threaded, dynamically-
+linked.  The other 2 configurations are simply statically linked.  Build
+those two.
+  Build -> Set Active Configuration ...
+  Build -> Build common.lib
+
+To install library
+------------------
+
+libraries are installed in subfolders of {build-dir}/libs/ based on the
+configuration names:
+
+  {build-dir}/libs/Release
+  {build-dir}/libs/Debug
+
+Include files are installed in {build-dir}/libs/include/{library}/{version #}/{library}
+So for example, the headers for library named "libFoo" version 3.1 are installed in:
+
+  {build-dir}/libs/include/libFoo/3.1/libFoo/
+
+In FileView tab in VC++, common_lib files -> source code -> miscellaneous. -> lib_info.cpp
+has version number; for these instructions it was version 2.0 release candidate 1.
+
+Copy the library from the configuration directory (Release/ or Debug/) into the
+corresponding installation directory, adding the version # to the file name:
+So
+  {build-dir}/libs/common/2.0/Release/common.lib 
+    copied to
+  {build-dir}/libs/Release/common_2.0-rc1.lib
+
+  beta release would be {library}_#.#-b#.lib
+  official release would be {library}_#.#
+
+INSTALL HEADER FILES
+  Copy all *.h and *.inl files from {build-dir}/lib/common/2.0/include/
+    exclude _sample.h
+  Into {build-dir}/libs/include/common/2.0/common/
+
+------------------------------------------------------------------------------------------
+
+Create the folder {build-dir}/apps/SUE
+Checkout SUE code:
+
+  Right click SUE folder
+  CVS Checkout:
+    Module: "SUE"
+    Revision: Use HEAD branch
+    Options: Custom folder name: "1.0"
+
+Select active configuration as Release
+and build.
+
+Uses some libraries installed with
+
+Need to install Parser Generator software from Bumble-Bee software
+http://www.bumblebeesoftware.com/index.htm
+The project settings for SUE have an absolute path, and assume that Parser Generator
+is installed in "C:\Program Files\Parser Generator 2\" which is the default location.
