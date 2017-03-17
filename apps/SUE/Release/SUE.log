@@ -1,0 +1,73 @@
+﻿Build started 3/8/2017 3:34:59 PM.
+     1>Project "C:\matt_sue\apps\SUE\apps\SUE\SUE.vcxproj" on node 2 (Rebuild target(s)).
+     1>CustomBuild:
+         Performing Custom Build Tools
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I..\..\..\libs\include\common\2.0 /I"C:\Program Files\Parser Generator 2\Cpp\Include" /Zi /nologo /W3 /WX- /O2 /Ob1 /Oy- /D WIN32 /D NDEBUG /D _CONSOLE /D _VC80_UPGRADE=0x0600 /D _MBCS /GF /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo".\Release/" /Fd".\Release/vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Action.cpp AssignFromEquationAction.cpp buildDate.cpp Command.cpp Command_Code.cpp ComputationEngine.cpp CorrelationAction.cpp correlationStuff.cpp DistTyp.cpp execute_cmd_seq.cpp HistogramAction.cpp main.cpp MeanAction.cpp MedianAction.cpp NegExp.cpp NegExpAction.cpp Normal.cpp NormalAction.cpp NormalBivariatesAction.cpp parser\Action_Lexer.cpp parser\myparser.cpp parser\parser_impl.cpp parser\parse_action.cpp PercentileBoundsAction.cpp process_cmd_line.cpp progInfo.cpp prog_parms.cpp rankCorrelateAction.cpp rankCorrelationAction.cpp RegressionAction.cpp RegressionPercentilesAction.cpp StandardDeviationAction.cpp Triangular.cpp TriangularAction.cpp Uniform.cpp UniformAction.cpp ValsToCSVAction.cpp vectorOps.cpp version.cpp
+         Action.cpp
+         AssignFromEquationAction.cpp
+         buildDate.cpp
+         Command.cpp
+         Command_Code.cpp
+         ComputationEngine.cpp
+     1>ComputationEngine.cpp(12): fatal error C1083: Cannot open include file: 'common/Error.h': No such file or directory
+         CorrelationAction.cpp
+         correlationStuff.cpp
+     1>correlationStuff.cpp(12): fatal error C1083: Cannot open include file: 'common/Error.h': No such file or directory
+         DistTyp.cpp
+     1>c:\matt_sue\apps\sue\apps\sue\DistTyp.h(13): fatal error C1083: Cannot open include file: 'common/Random_Uniform.h': No such file or directory
+         execute_cmd_seq.cpp
+     1>execute_cmd_seq.cpp(7): fatal error C1083: Cannot open include file: 'common/Error.h': No such file or directory
+         HistogramAction.cpp
+     1>HistogramAction.cpp(7): fatal error C1083: Cannot open include file: 'common/Error.h': No such file or directory
+         main.cpp
+     1>main.cpp(11): fatal error C1083: Cannot open include file: 'common/Error.h': No such file or directory
+         MeanAction.cpp
+         MedianAction.cpp
+         NegExp.cpp
+     1>c:\matt_sue\apps\sue\apps\sue\distTyp.h(13): fatal error C1083: Cannot open include file: 'common/Random_Uniform.h': No such file or directory
+         NegExpAction.cpp
+     1>NegExpAction.cpp(7): fatal error C1083: Cannot open include file: 'common/Error.h': No such file or directory
+         Normal.cpp
+     1>c:\matt_sue\apps\sue\apps\sue\distTyp.h(13): fatal error C1083: Cannot open include file: 'common/Random_Uniform.h': No such file or directory
+         NormalAction.cpp
+         NormalBivariatesAction.cpp
+         Action_Lexer.cpp
+     1>parser\Action_Lexer.cpp(6): fatal error C1083: Cannot open include file: 'common/Assert_That.h': No such file or directory
+         Generating Code...
+         Compiling...
+         myparser.cpp
+     1>parser\myparser.cpp(27): fatal error C1083: Cannot open include file: 'cyacc.h': No such file or directory
+         parser_impl.cpp
+         parse_action.cpp
+     1>c:\matt_sue\apps\sue\apps\sue\parser\myparser.h(30): fatal error C1083: Cannot open include file: 'cyacc.h': No such file or directory
+         PercentileBoundsAction.cpp
+         process_cmd_line.cpp
+     1>process_cmd_line.cpp(6): fatal error C1083: Cannot open include file: 'common/Program_Options.h': No such file or directory
+         progInfo.cpp
+     1>c:\matt_sue\apps\sue\apps\sue\progInfo.h(6): fatal error C1083: Cannot open include file: 'common/Version_Number.h': No such file or directory
+         prog_parms.cpp
+         rankCorrelateAction.cpp
+         rankCorrelationAction.cpp
+         RegressionAction.cpp
+     1>RegressionAction.cpp(33): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
+         RegressionPercentilesAction.cpp
+     1>RegressionPercentilesAction.cpp(39): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
+         StandardDeviationAction.cpp
+         Triangular.cpp
+     1>c:\matt_sue\apps\sue\apps\sue\DistTyp.h(13): fatal error C1083: Cannot open include file: 'common/Random_Uniform.h': No such file or directory
+         TriangularAction.cpp
+         Uniform.cpp
+     1>c:\matt_sue\apps\sue\apps\sue\DistTyp.h(13): fatal error C1083: Cannot open include file: 'common/Random_Uniform.h': No such file or directory
+         UniformAction.cpp
+         ValsToCSVAction.cpp
+         vectorOps.cpp
+     1>vectorOps.cpp(9): fatal error C1083: Cannot open include file: 'common/Error.h': No such file or directory
+         version.cpp
+     1>c:\matt_sue\apps\sue\apps\sue\progInfo.h(6): fatal error C1083: Cannot open include file: 'common/Version_Number.h': No such file or directory
+         Generating Code...
+     1>Done Building Project "C:\matt_sue\apps\SUE\apps\SUE\SUE.vcxproj" (Rebuild target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:12.16
