@@ -1,0 +1,254 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{909179E7-6B74-4268-8812-B0647FE679A0}</ProjectGuid>
+    <RootNamespace>SUE</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>12.0.30501.0</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>.\Release\</OutDir>
+    <IntDir>.\Release\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>.\Debug\</OutDir>
+    <IntDir>.\Debug\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Midl>
+      <TypeLibraryName>.\Release/SUE.tlb</TypeLibraryName>
+      <HeaderFileName />
+    </Midl>
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <AdditionalIncludeDirectories>..\..\..\libs\include\common\2.0;C:\Program Files\Parser Generator 2\Cpp\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeaderOutputFile>.\Release/SUE.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\Release/</AssemblerListingLocation>
+      <ObjectFileName>.\Release/</ObjectFileName>
+      <ProgramDataBaseFileName>.\Release/</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+    <PreLinkEvent>
+      <Command>cl /Fo$(OutDir) /c buildDate.cpp</Command>
+    </PreLinkEvent>
+    <Link>
+      <AdditionalDependencies>yl.lib;common_2.0-rc1.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>.\Release/SUE.exe</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalLibraryDirectories>C:\local\soft-dev\libs\Release;C:\Program Files\Parser Generator 2\Cpp\Lib\msvc32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ProgramDatabaseFile>.\Release/SUE.pdb</ProgramDatabaseFile>
+      <SubSystem>Console</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention />
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\Release/SUE.bsc</OutputFile>
+    </Bscmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Midl>
+      <TypeLibraryName>.\Debug/SUE.tlb</TypeLibraryName>
+      <HeaderFileName />
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>C:\matt_sue\libs\include;C:\Program Files %28x86%29\Parser Generator 2\Cpp\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;YYDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeaderOutputFile>.\Debug/SUE.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\Debug/</AssemblerListingLocation>
+      <ObjectFileName>.\Debug/</ObjectFileName>
+      <ProgramDataBaseFileName>.\Debug/</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+    <PreLinkEvent>
+      <Command>cl /Fo$(OutDir) /c buildDate.cpp</Command>
+    </PreLinkEvent>
+    <Link>
+      <AdditionalDependencies>yld.lib;common_2.0-rc1.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>.\Debug/SUE.exe</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalLibraryDirectories>C:\Program Files %28x86%29\Parser Generator 2\Cpp\Lib\msvc32;C:\matt_sue\libs\libs\common\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreSpecificDefaultLibraries>libc;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>.\Debug/SUE.pdb</ProgramDatabaseFile>
+      <SubSystem>Console</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention />
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\Debug/SUE.bsc</OutputFile>
+    </Bscmake>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Action.cpp" />
+    <ClCompile Include="AssignFromEquationAction.cpp" />
+    <ClCompile Include="buildDate.cpp" />
+    <ClCompile Include="Command.cpp" />
+    <ClCompile Include="Command_Code.cpp" />
+    <ClCompile Include="ComputationEngine.cpp" />
+    <ClCompile Include="CorrelationAction.cpp" />
+    <ClCompile Include="correlationStuff.cpp" />
+    <ClCompile Include="DistTyp.cpp" />
+    <ClCompile Include="execute_cmd_seq.cpp" />
+    <ClCompile Include="HistogramAction.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="MeanAction.cpp" />
+    <ClCompile Include="MedianAction.cpp" />
+    <ClCompile Include="NegExp.cpp" />
+    <ClCompile Include="NegExpAction.cpp" />
+    <ClCompile Include="Normal.cpp" />
+    <ClCompile Include="NormalAction.cpp" />
+    <ClCompile Include="NormalBivariatesAction.cpp" />
+    <ClCompile Include="parser\Action_Lexer.cpp" />
+    <ClCompile Include="parser\error_mesgs.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="parser\error_states.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="parser\myparser.cpp" />
+    <ClCompile Include="parser\parser_impl.cpp" />
+    <ClCompile Include="parser\parse_action.cpp" />
+    <ClCompile Include="PercentileBoundsAction.cpp" />
+    <ClCompile Include="process_cmd_line.cpp" />
+    <ClCompile Include="progInfo.cpp" />
+    <ClCompile Include="prog_parms.cpp" />
+    <ClCompile Include="rankCorrelateAction.cpp" />
+    <ClCompile Include="rankCorrelationAction.cpp" />
+    <ClCompile Include="RegressionAction.cpp" />
+    <ClCompile Include="RegressionPercentilesAction.cpp" />
+    <ClCompile Include="StandardDeviationAction.cpp" />
+    <ClCompile Include="Triangular.cpp" />
+    <ClCompile Include="TriangularAction.cpp" />
+    <ClCompile Include="Uniform.cpp" />
+    <ClCompile Include="UniformAction.cpp" />
+    <ClCompile Include="ValsToCSVAction.cpp" />
+    <ClCompile Include="vectorOps.cpp" />
+    <ClCompile Include="version.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Action.h" />
+    <ClInclude Include="actions.h" />
+    <ClInclude Include="AssignFromEquationAction.h" />
+    <ClInclude Include="buildDate.h" />
+    <ClInclude Include="Command.h" />
+    <ClInclude Include="Command_Code.h" />
+    <ClInclude Include="command_codes.h" />
+    <ClInclude Include="Command_Sequence.h" />
+    <ClInclude Include="ComputationEngine.h" />
+    <ClInclude Include="CorrelationAction.h" />
+    <ClInclude Include="correlationStuff.h" />
+    <ClInclude Include="distributionTypes.h" />
+    <ClInclude Include="distTyp.h" />
+    <ClInclude Include="execute_cmd_seq.h" />
+    <ClInclude Include="HistogramAction.h" />
+    <ClInclude Include="MeanAction.h" />
+    <ClInclude Include="MedianAction.h" />
+    <ClInclude Include="negExp.h" />
+    <ClInclude Include="NegExpAction.h" />
+    <ClInclude Include="normal.h" />
+    <ClInclude Include="NormalAction.h" />
+    <ClInclude Include="NormalBivariatesAction.h" />
+    <ClInclude Include="parser\Action_Lexer.h" />
+    <ClInclude Include="parser\myparser.h" />
+    <ClInclude Include="parser\Parser_Error.h" />
+    <ClInclude Include="parser\parser_impl.h" />
+    <ClInclude Include="parser\parse_action.h" />
+    <ClInclude Include="PercentileBoundsAction.h" />
+    <ClInclude Include="pragmas.h" />
+    <ClInclude Include="process_cmd_line.h" />
+    <ClInclude Include="progInfo.h" />
+    <ClInclude Include="prog_parms.h" />
+    <ClInclude Include="rankCorrelateAction.h" />
+    <ClInclude Include="rankCorrelationAction.h" />
+    <ClInclude Include="RegressionAction.h" />
+    <ClInclude Include="RegressionPercentilesAction.h" />
+    <ClInclude Include="StandardDeviationAction.h" />
+    <ClInclude Include="triangular.h" />
+    <ClInclude Include="TriangularAction.h" />
+    <ClInclude Include="uniform.h" />
+    <ClInclude Include="UniformAction.h" />
+    <ClInclude Include="ValsToCSVAction.h" />
+    <ClInclude Include="vectorOps.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Command.inl" />
+    <None Include="parser\Action_Lexer.inl" />
+    <CustomBuild Include="parser\myparser.v">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\local\\Perl\bin\perl.exe  parser\make_error_mesgs.pl parser\error_mesgs.c parser\error_states.c &lt; %(FullPath)
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">parser\error_mesgs.c;parser\error_states.c;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\local\\Perl\bin\perl.exe  parser\make_error_mesgs.pl parser\error_mesgs.c parser\error_states.c &lt; %(FullPath)
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">parser\error_mesgs.c;parser\error_states.c;%(Outputs)</Outputs>
+    </CustomBuild>
+    <None Include="parser\myparser.y" />
+    <None Include="parser\Parser_Error.inl" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
