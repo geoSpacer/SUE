@@ -1,0 +1,141 @@
+﻿Build started 3/8/2017 3:40:14 PM.
+     1>Project "C:\matt_sue\apps\SUE\apps\SUE\SUE.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\matt_sue\libs\include /I"C:\Program Files (x86)\Parser Generator 2\Cpp\Include" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D YYDEBUG /D _VC80_UPGRADE=0x0600 /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo".\Debug/" /Fd".\Debug/vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Action.cpp AssignFromEquationAction.cpp buildDate.cpp Command.cpp Command_Code.cpp ComputationEngine.cpp CorrelationAction.cpp correlationStuff.cpp DistTyp.cpp execute_cmd_seq.cpp HistogramAction.cpp main.cpp MeanAction.cpp MedianAction.cpp NegExp.cpp NegExpAction.cpp Normal.cpp NormalAction.cpp NormalBivariatesAction.cpp parser\Action_Lexer.cpp parser\myparser.cpp parser\parser_impl.cpp parser\parse_action.cpp PercentileBoundsAction.cpp process_cmd_line.cpp progInfo.cpp prog_parms.cpp rankCorrelateAction.cpp rankCorrelationAction.cpp RegressionAction.cpp RegressionPercentilesAction.cpp StandardDeviationAction.cpp Triangular.cpp TriangularAction.cpp Uniform.cpp UniformAction.cpp ValsToCSVAction.cpp vectorOps.cpp version.cpp
+         version.cpp
+         vectorOps.cpp
+     1>c:\matt_sue\apps\sue\apps\sue\vectorops.cpp(157): warning C4244: 'argument' : conversion from 'double' to 'unsigned int', possible loss of data
+     1>c:\matt_sue\apps\sue\apps\sue\vectorops.cpp(158): warning C4244: 'argument' : conversion from 'double' to 'unsigned int', possible loss of data
+         ValsToCSVAction.cpp
+         UniformAction.cpp
+         Uniform.cpp
+         TriangularAction.cpp
+         Triangular.cpp
+         StandardDeviationAction.cpp
+         RegressionPercentilesAction.cpp
+     1>c:\matt_sue\apps\sue\apps\sue\regressionpercentilesaction.cpp(39): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
+         RegressionAction.cpp
+     1>c:\matt_sue\apps\sue\apps\sue\regressionaction.cpp(33): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
+         rankCorrelationAction.cpp
+         rankCorrelateAction.cpp
+         prog_parms.cpp
+         progInfo.cpp
+         process_cmd_line.cpp
+         PercentileBoundsAction.cpp
+         parse_action.cpp
+         parser_impl.cpp
+         myparser.cpp
+         Action_Lexer.cpp
+         Generating Code...
+         Compiling...
+         NormalBivariatesAction.cpp
+         NormalAction.cpp
+         Normal.cpp
+         NegExpAction.cpp
+         NegExp.cpp
+         MedianAction.cpp
+         MeanAction.cpp
+         main.cpp
+     1>c:\matt_sue\apps\sue\apps\sue\parser\parse_action.h(12): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+     1>c:\matt_sue\libs\include\common\input_value.h(37): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+     1>c:\matt_sue\libs\include\common\input_value_str.h(38): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+     1>c:\matt_sue\libs\include\common\input_value_num.h(44): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+                 c:\matt_sue\libs\include\common\input_value_num.h(63) : see reference to class template instantiation 'Input_Value::Num<Num_Type>' being compiled
+     1>c:\matt_sue\libs\include\common\input_value_num.inl(27): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+     1>c:\matt_sue\libs\include\common\input_value_enum.h(37): warning C4346: 'Str_To_Value<Value_Type>::Func_Ptr' : dependent name is not a type
+                 prefix with 'typename' to indicate a type
+                 c:\matt_sue\libs\include\common\input_value_enum.h(56) : see reference to class template instantiation 'Input_Value::Enum<Enum_Type>' being compiled
+     1>c:\matt_sue\libs\include\common\input_value_enum.h(37): error C2061: syntax error : identifier 'Func_Ptr'
+     1>c:\matt_sue\libs\include\common\input_value_enum.h(49): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+     1>c:\matt_sue\libs\include\common\input_value_enum.h(55): warning C4346: 'Str_To_Value<Value_Type>::Func_Ptr' : dependent name is not a type
+                 prefix with 'typename' to indicate a type
+     1>c:\matt_sue\libs\include\common\input_value_enum.h(55): error C2146: syntax error : missing ';' before identifier 'str_to_enum_func_'
+     1>c:\matt_sue\libs\include\common\input_value_enum.h(55): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\matt_sue\libs\include\common\input_value_enum.inl(13): warning C4346: 'Str_To_Value<Value_Type>::Func_Ptr' : dependent name is not a type
+                 prefix with 'typename' to indicate a type
+     1>c:\matt_sue\libs\include\common\input_value_enum.inl(13): error C2061: syntax error : identifier 'Func_Ptr'
+     1>c:\matt_sue\libs\include\common\input_value_enum.inl(24): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+     1>c:\matt_sue\libs\include\common\input_value_str_list.h(37): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+     1>c:\matt_sue\libs\include\common\input_value_enum_list.h(38): warning C4346: 'Str_To_Value<Value_Type>::Func_Ptr' : dependent name is not a type
+                 prefix with 'typename' to indicate a type
+                 c:\matt_sue\libs\include\common\input_value_enum_list.h(60) : see reference to class template instantiation 'Input_Value::Enum_List<Enum_Type>' being compiled
+     1>c:\matt_sue\libs\include\common\input_value_enum_list.h(38): error C2061: syntax error : identifier 'Func_Ptr'
+     1>c:\matt_sue\libs\include\common\input_value_enum_list.h(52): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+     1>c:\matt_sue\libs\include\common\input_value_enum_list.h(59): warning C4346: 'Str_To_Value<Value_Type>::Func_Ptr' : dependent name is not a type
+                 prefix with 'typename' to indicate a type
+     1>c:\matt_sue\libs\include\common\input_value_enum_list.h(59): error C2146: syntax error : missing ';' before identifier 'str_to_enum_func_'
+     1>c:\matt_sue\libs\include\common\input_value_enum_list.h(59): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\matt_sue\libs\include\common\input_value_enum_list.inl(13): warning C4346: 'Str_To_Value<Value_Type>::Func_Ptr' : dependent name is not a type
+                 prefix with 'typename' to indicate a type
+     1>c:\matt_sue\libs\include\common\input_value_enum_list.inl(13): error C2061: syntax error : identifier 'Func_Ptr'
+     1>c:\matt_sue\libs\include\common\input_value_enum_list.inl(24): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+     1>c:\matt_sue\libs\include\common\input_var_num.inl(17): error C3860: template argument list following class template name must list parameters in the order used in template parameter list
+     1>c:\matt_sue\libs\include\common\input_var_enum.h(35): warning C4346: 'Str_To_Value<Value_Type>::Func_Ptr' : dependent name is not a type
+                 prefix with 'typename' to indicate a type
+                 c:\matt_sue\libs\include\common\input_var_enum.h(46) : see reference to class template instantiation 'Input_Var::Enum<Enum_Type,Dummy>' being compiled
+     1>c:\matt_sue\libs\include\common\input_var_enum.h(35): error C2061: syntax error : identifier 'Func_Ptr'
+     1>c:\matt_sue\libs\include\common\input_var_enum.inl(13): warning C4346: 'Str_To_Value<Value_Type>::Func_Ptr' : dependent name is not a type
+                 prefix with 'typename' to indicate a type
+     1>c:\matt_sue\libs\include\common\input_var_enum.inl(13): error C2061: syntax error : identifier 'Func_Ptr'
+     1>c:\matt_sue\libs\include\common\input_var_enum.inl(18): error C3860: template argument list following class template name must list parameters in the order used in template parameter list
+     1>c:\matt_sue\libs\include\common\input_var_enum_list.h(37): warning C4346: 'Str_To_Value<Value_Type>::Func_Ptr' : dependent name is not a type
+                 prefix with 'typename' to indicate a type
+                 c:\matt_sue\libs\include\common\input_var_enum_list.h(48) : see reference to class template instantiation 'Input_Var::Enum_List<Enum_Type,Dummy>' being compiled
+     1>c:\matt_sue\libs\include\common\input_var_enum_list.h(37): error C2061: syntax error : identifier 'Func_Ptr'
+     1>c:\matt_sue\libs\include\common\input_var_enum_list.inl(13): warning C4346: 'Str_To_Value<Value_Type>::Func_Ptr' : dependent name is not a type
+                 prefix with 'typename' to indicate a type
+     1>c:\matt_sue\libs\include\common\input_var_enum_list.inl(13): error C2061: syntax error : identifier 'Func_Ptr'
+     1>c:\matt_sue\libs\include\common\input_var_enum_list.inl(18): error C3860: template argument list following class template name must list parameters in the order used in template parameter list
+     1>c:\matt_sue\libs\include\common\input_value_read.h(163): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+         HistogramAction.cpp
+         execute_cmd_seq.cpp
+     1>c:\matt_sue\apps\sue\apps\sue\execute_cmd_seq.cpp(77): warning C4018: '<' : signed/unsigned mismatch
+         DistTyp.cpp
+         correlationStuff.cpp
+     1>c:\matt_sue\apps\sue\apps\sue\correlationstuff.cpp(296): error C2872: 'rank' : ambiguous symbol
+                 could be 'c:\matt_sue\apps\sue\apps\sue\correlationstuff.cpp(51) : void `anonymous-namespace'::rank(const std::vector<double,std::allocator<_Ty>> &,std::vector<int,std::allocator<int>> &)'
+                 with
+                 [
+                     _Ty=double
+                 ]
+                 or       'c:\program files (x86)\microsoft visual studio 12.0\vc\include\type_traits(1299) : std::rank'
+     1>c:\matt_sue\apps\sue\apps\sue\correlationstuff.cpp(297): error C2872: 'rank' : ambiguous symbol
+                 could be 'c:\matt_sue\apps\sue\apps\sue\correlationstuff.cpp(51) : void `anonymous-namespace'::rank(const std::vector<double,std::allocator<_Ty>> &,std::vector<int,std::allocator<int>> &)'
+                 with
+                 [
+                     _Ty=double
+                 ]
+                 or       'c:\program files (x86)\microsoft visual studio 12.0\vc\include\type_traits(1299) : std::rank'
+     1>c:\matt_sue\apps\sue\apps\sue\correlationstuff.cpp(459): error C2872: 'rank' : ambiguous symbol
+                 could be 'c:\matt_sue\apps\sue\apps\sue\correlationstuff.cpp(51) : void `anonymous-namespace'::rank(const std::vector<double,std::allocator<_Ty>> &,std::vector<int,std::allocator<int>> &)'
+                 with
+                 [
+                     _Ty=double
+                 ]
+                 or       'c:\program files (x86)\microsoft visual studio 12.0\vc\include\type_traits(1299) : std::rank'
+     1>c:\matt_sue\apps\sue\apps\sue\correlationstuff.cpp(460): error C2872: 'rank' : ambiguous symbol
+                 could be 'c:\matt_sue\apps\sue\apps\sue\correlationstuff.cpp(51) : void `anonymous-namespace'::rank(const std::vector<double,std::allocator<_Ty>> &,std::vector<int,std::allocator<int>> &)'
+                 with
+                 [
+                     _Ty=double
+                 ]
+                 or       'c:\program files (x86)\microsoft visual studio 12.0\vc\include\type_traits(1299) : std::rank'
+     1>c:\matt_sue\apps\sue\apps\sue\correlationstuff.cpp(498): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+         CorrelationAction.cpp
+         ComputationEngine.cpp
+     1>c:\matt_sue\apps\sue\apps\sue\computationengine.cpp(254): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
+     1>c:\matt_sue\apps\sue\apps\sue\computationengine.cpp(322): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\matt_sue\apps\sue\apps\sue\computationengine.cpp(332): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\matt_sue\apps\sue\apps\sue\computationengine.cpp(347): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\matt_sue\apps\sue\apps\sue\computationengine.cpp(358): warning C4018: '<' : signed/unsigned mismatch
+         Command_Code.cpp
+         Command.cpp
+         buildDate.cpp
+         AssignFromEquationAction.cpp
+         Action.cpp
+         Generating Code...
+     1>Done Building Project "C:\matt_sue\apps\SUE\apps\SUE\SUE.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:14.90
