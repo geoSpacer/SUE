@@ -1,0 +1,16 @@
+/* Error Messages */
+  /*  0 */  "Expected a variable, RANK CORRELATE, query command, regression command or output command",
+  /*  1 */  "Expected \"(\"",
+  /*  2 */  "Expected the end of line",
+  /*  3 */  "Expected \"=\" or \",\"",
+  /*  4 */  "Expected a variable",
+  /*  5 */  "Expected \",\"",
+  /*  6 */  "Expected \")\"",
+  /*  7 */  "Expected \"t\", \"ln\", \"log10\", number, variable, constant, \"-\" or \"(\"",
+  /*  8 */  "Expected \"=\"",
+  /*  9 */  "Expected a number",
+  /* 10 */  "Expected \"integer\"",
+  /* 11 */  "Expected a NORMAL BIVARIATES",
+  /* 12 */  "Expected a numeric operator or \")\"",
+  /* 13 */  "Expected a STRING",
+  /* 14 */  "Expected \"grow\" or \"decay\""

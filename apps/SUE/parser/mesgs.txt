@@ -1,0 +1,12 @@
+/* Error Messages */
+  /*  0 */  "Expected a number, variable, function, \"-\" or \"(\"",
+  /*  1 */  "Expected \"(\"",
+  /*  2 */  "Expected a numeric operator",
+  /*  3 */  "Expected a numeric operator or \")\"",
+  /*  4 */  "Expected a number, variable, function, \"-\", \"not\" or \"(\"",
+  /*  5 */  "Expected a numeric operator, comparison operator or \"<>\"",
+  /*  6 */  "Expected \"and\", \"or\" or \",\"",
+  /*  7 */  "Expected a numeric operator or \",\"",
+  /*  8 */  "Expected a numeric operator, comparison operator, \"<>\" or \")\"",
+  /*  9 */  "Expected \"and\", \"or\" or \")\"",
+  /* 10 */  "Expected \",\" or \")\""
