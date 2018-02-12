@@ -1,0 +1,509 @@
+﻿<%@ Page Title="Manual" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeFile="SUEguide.aspx.cs" Inherits="SUEguide" %>
+
+<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+<H1 style="text-align:center;">
+	SUE - Stochastic Uncertainty Estimator
+	<br>
+	User Guide
+</H1>
+
+<p style="text-align:center;">
+11-1-02<br>
+Justin R. Goodman</p>
+
+<hr>
+
+<p>
+	<A HREF="#background">Why SUE?</A>
+	<br>
+	<A HREF="#description">What does SUE do?</A>
+	<br>
+	<A HREF="#inputFile">How do I make a SUE input file?</A>
+	<br>
+	<A HREF="#sample">What does a typical input file look like?</A>
+	<br>
+	<A HREF="#troubleShooting">I'm having trouble with SUE - any suggestions?</A>
+</p>
+
+<hr>
+
+<H2><A NAME="background">Background</A></H2>
+
+<p>
+	In any quantitative experiment or study involving calculations, the propagation of error through the calculations is of considerable 
+	importance.  If we were to calculate speed by measuring a distance traveled and the associated elapsed time, our computed speed would 
+	have an associated uncertainty that would depend on the uncertainty of the two measured quantities.  In such a simple case, generating 
+	quantitative claims about the probable accuracy of the speed we computed would not be difficult.  So long as only simple mathematical 
+	operations are used in a calculation and so long as one can assume a roughly normal distribution of error for uncorrelated measurements, 
+	there exist relatively simple formulas for propagating uncertainties through a calculation.  Once we stray from these simple cases, 
+	however, the propagation of uncertainty becomes more challenging. 
+</p>
+
+<p>
+	It is clearly true that the realm of significant calculations extends beyond the simple cases adhering to the above assumptions.  
+	We can imagine a calculation involving two measurements that are correlated with one-another, or perhaps we wish to perform a calculation 
+	involving a measurement that we know to have a negative exponential uncertainty distribution.  Maybe the calculation we wish 
+	to perform is a regression involving measured parameters and a free variable.  Perhaps one of the parameters we wish to use in a calculation 
+	is something that is not easily measured and therefore an expert opinion with an associated probable range of values must be used instead.  
+	For these cases, the simple error propagation methods mentioned above may be inappropriate either because of contradictions of assumptions 
+	or because the calculations would simply be too tedious.  This presents a problem because a calculated value is of limited use unless we 
+	can give some sort of indication of how close that value is to the real value.  This problem is exactly what the SUE 
+	was designed to address.
+</p>
+
+<hr>
+
+<H2><A NAME="description">Description</A></H2>
+
+<p>
+	Put concisely, SUE is a tool to create a sample space of parameters and convey requested information about the distribution of 
+	those parameters to the user.  This is best illustrated by an example.  We will use a high-school as our sample space, where 
+	each student is a sample.  The sample space has parameters: height, age, weight, etc.  Some of these parameters can be described by 
+	distribution types - for example, we may be able to describe age as uniformly distributed over the interval 14 to 18.  
+	We may declare weight to be normally distributed with mean 140 lbs and standard deviation of 20 lbs.  There may be parameters that 
+	can be described as functions of other parameters.  Perhaps running speed can be described as some function of age, height, weight, 
+	and athleticism.  Once these parameters are established as general distribution types and functions of distribution types, we may 
+	wish to know the standard deviation of a certain parameter or perhaps see a histogram of that parameter.  We may wish to see the raw 
+	sample values of a given parameter for external use or for comparison with real measured numbers to check the accuracy of proposed functions. 
+</p>
+
+<p>
+	To solve these problems, the series of 
+	<A HREF="#validParamNames">parameter </A>
+	definitions and queries would be input to SUE via an appropriate 
+	<A HREF="#inputFile">input file</A>.  
+	The user is responsible for creating such an input file.  SUE then reads the input file and utilizes Monte Carlo methods to 
+	simulate repeated samplings from the input distribution types to populate the sample space.  The sample space for a parameter 
+	that is a function of other parameters is populated by repeatedly performing the function on samples of its independent parameters.
+</p>
+
+<hr>
+
+<H2><A NAME="inputFile">The Input File</A></H2>
+
+<p>
+	SUE takes an input file name as a command-line argument.  This means from an MS-DOS Prompt window, you must type the name of the 
+	file you wish SUE to process along with the name of the program (SUE) to make it run properly.  For example, in MS-DOS, in the
+	directory containing both the program SUE and some input file "file.txt", typing 
+	<br><tt>SUE file.txt</tt>
+	<br>will run SUE on the file "file.txt" and the resulting files will be stored in the same directory.
+</p><p>
+	The input file is made up of a sequence of actions (one per line) that will be performed in the order they occur in the file.  
+</p><p>
+	In addition to actions, there can be properly formatted user-comments in the input file that will be disregarded by SUE.
+	<br>Line comments start with the ">" sign.  Anything occurring on a line that begins with ">" will be disregarded by SUE.  
+</p><p>
+	The actual actions fall into three basic types: <A HREF="#initializationActions">initialization actions</A>, 
+	<A HREF="#parameterActions">parameter actions</A>, 
+	and <A HREF="#queryActions">query actions</A>. 
+</p>
+
+<H3><A NAME="initializationActions">Initialization Actions</A></H3> 
+
+<p>There are two initialization actions that must occur first in the input file, in the order listed below.</p>
+
+<p>
+	<b>Seed</b> <i>seedNumber</i>
+	<br>Seed is the first action.  Our pseudo-random number generator needs an odd integer with which to seed itself.  
+	<br>The number following the keyword "Seed" can be any odd integer between 1 and 1,000,000.  Example:
+	<br><TT>Seed 1283</TT>
+</p>
+
+<p>
+	<b>SampleSpaceSize</b> <i>size</i>
+	<br>SampleSpaceSize must be the second action of the input file.  In order to generate a sample space with parameters, 
+	we must know how big the sample space is.  The number following the keyword "SampleSpaceSize" is the desired size.  
+	This number must be an integer between 2 and 1,000,000.  In the interest of quick computations, it is recommended 
+	that the user restrict himself to sizes less than 100,000.  Larger sizes may be attempted, but the run time of the program 
+	may get to be quite long.  Example:
+	<br><TT>SampleSpaceSize 10000</TT>
+</p>
+
+<H3><A NAME="parameterActions">Parameter Actions</A></H3> 
+
+<p>Parameter Actions are those that create or modify the <A HREF="#validParamNames">parameters</A> of the sample space.
+    In addition to describing individual parameters in terms of their mode and distribution, one can describe the relationship 
+    of parameters to each other.  These relationships could be correlations (e.g., bivariate or rank) or via expressions that 
+    describe relationships.  For example, parameter 3 might be the product of parameter 1 and parameter 2. 
+</p>
+
+<table border="1">
+<tr>
+	<td>
+		<p>
+			<i><A HREF="#validParamNames">parameterName</A></i> <b>= Uniform(</b><i>lowerBound, upperBound</i><b>)</b>
+			<br>This action creates a new parameter that has uniformly distributed samples over the interval <i>lowerBound</i> to <i>upperBound</i>.  
+			The bounds can be any real numbers provided the first is smaller than the second.  Example:
+			<br><tt>Var1 = Uniform(4, 4.9)</tt>
+		</p>
+	</td>
+	<td>
+		<p align="center">
+			Histogram of Var1
+		</p>
+		<img src="images/Var1.gif"> 
+	</td>
+</tr>
+<tr>
+	<td>
+		<p>
+			<i><A HREF="#validParamNames">parameterName</A></i> <b>= Triangular(</b><i>lowerBound, mode, upperBound</i><b>)</b>
+			This action creates a new parameter that has samples consistent with a triangular distribution with <i>lowerBound</i>, 
+			<i>mode</i>, and <i>upperBound</i> as specified.  <i>lowerBound, mode, </i>and<i> upperBound</i> are real numbers
+			where <i>lowerBound <= mode <= upperBound</i>.  Example:
+			<br><tt>LiveMax = Triangular(96.1, 99, 100)</tt>
+		</p>
+	</td>
+	<td>
+		<p align="center">
+			Histogram of LiveMax
+		</p>
+		<img src="images/LiveMax.gif"> 
+	</td>
+</tr>
+
+<tr>
+	<td>
+		<p>
+			<i><A HREF="#validParamNames">parameterName</A></i> <b>= NegativeExponential(</b><i>lowerBound, standardDeviation</i><b>)</b>
+			This action creates a parameter that has samples consistent with a negative exponential distribution with <i>lowerBound</i>
+			and <i>standardDeviation</i> as specified.  Restrictions are that the numbers must be real and <i>standardDeviation</i>
+			must be positive.  Example:
+			<br><tt>VarIAblE = NegativeExponential(5.1, 3.2)</tt>
+		</p>
+	</td>
+	<td>
+		<p align="center">
+			Histogram of VarIAblE
+		</p>
+		<img src="images/VarIAblE.gif"> 
+	</td>
+</tr>
+
+<tr>
+	<td>
+		<p>
+			<i><A HREF="#validParamNames">parameterName</A></i> <b>= Normal(</b><i>mode, standardDeviation</i><b>)</b>
+			This action creates a parameter that has samples drawn from a normal distribution with <i>mode</i> and <i>standardDeviation</i>
+			as specified.  Example:
+			<br><tt>Var = Normal(3, 1)</tt>
+		</p>
+	</td>
+	<td>
+		<p align="center">
+			Histogram of Var
+		</p>
+		<img src="images/Var.gif"> 
+	</td>
+</tr>
+<tr>
+	<td>
+		<p>
+			<i><A HREF="#validParamNames">param1, param2</A></i><b> = NormalBivariates(</b><i>correlation, param1mode, param1stdDev, 
+			param2mode, param2stdDev</i><b>)</b>
+			<br>This action creates two parameters.  These parameters are drawn as though from a normal distributions with <i>correlation, 
+			modes</i> and <i>standardDeviations</i> as specified.  Correlation must be a real number between -1 and 1.  
+            In some cases parameters are correlated to each other.  If the distributions of each parameter is a normal distribution, 
+            then one can describe both parameters at the same time and also describe their correlation. Example:
+			<br><tt>b1, b2 = NormalBivariates(.5, .015, .001, 2, .1)</tt>
+		</p>
+	</td>
+	<td>
+		<p align="center">
+			Scatterplot of 500 param1/param2 pairs created with
+		<br>
+			NormalBivariates using correlation coefficient 0.7
+		</p>
+		<img src="images/b1vsb2.gif"> 
+	</td>
+</tr>
+<tr>
+	<td>
+		<p>
+			<i><A HREF="#validParamNames">parameterName</A></i> <b>=</b> <i><A HREF="#validExpressions">expression</A></i>
+			<br>This action creates a parameter that is calculated from the <i><A HREF="#validExpressions">expression</A></i>. 
+            Assignment expressions and regression expressions are identical except in one regard: regression functions should 
+            involve the free-variable "T" and assignment functions should not. Outside of these restrictions, a valid expression 
+            can be any well-formed expression involving defined parameter names, numbers, constants (e and pi), 
+            parentheses, +, -, *, /, ^, log10, and ln. Example:
+			<br><tt>b3 = ln(LiveMax * (1-e^(-b1))^b2)</tt>
+		</p>
+	</td>
+	<td>
+		<p align="center">
+			Histogram of b3
+		</p>
+		<img src="images/b3.gif"> 
+	</td>
+</tr>
+<tr>
+	<td>
+		<p>
+			<b>rankCorrelate(</b><i>param1, param2, rankCorr, method</i><b>)</b>
+			<br>This action produces a rank correlation of <i>rankCorr</i> in the two defined parameters param1 and param2.  
+			There are two different methods for this operation: "grow" and "decay".  These names have more to do with the 
+			implementation than the produced correlation.  "Grow" starts with the independently generated samples from<i> param1</i> and 
+			<i>param2</i> and partially sorts them relative to one-another until the desired rank correlation coefficient is obtained.  
+			"Decay" fully sorts <i> param1</i> and <i>param2</i> relative to one another and then partially unsorts them until the desired
+			rank correlation is obtained.  When using rankCorrelate, try both methods and look at the differing scatter-plot 
+			spreads produced to get a feel for the difference.  The specifics of the different algorithms produce different spread types - 
+			"Grow" should produce a more uniform spread, whereas "decay" 
+			should yield a spread that looks somewhat normally distributed about an imaginary spline of best fit for the graph.  
+			It may be the case that neither is appropriate for the data set that the user has in mind.  
+			<br>The user should be aware 
+			that rank correlation is not the same as the more common correlation coefficient, though a high rank correlation 
+			implies a high correlation coefficient.  The advantage of rank correlation is that it is better suited to 
+			describing correlation of parameters which come from different distribution types.  In fact, certain combinations 
+			of correlation coefficients, and distribution types are logically impossible.  Try to imagine a uniform distribution 
+			and a negative exponential distribution that have a correlation coefficient of 1.  rankCorrelate allows the user to create
+			correlated parameters from different distribution types. In some cases parameters are correlated, but the underlying distributions 
+            of the two parameters are not normal or may be different. One can use rank correlate to address these sorts of correlations. 
+			Example:
+			<br><tt>rankCorrelate(LiveMax, b2, -.78, grow)</tt>
+		</p>
+	</td>
+	<td>
+		<p align="center">
+			Scatter-plot of two normal parameters correlated
+			<br>with "Grow" method, rank correlation 0.7
+		</p>
+		<img src="images/grow.gif"> 
+		<p align="center">
+			Scatter-plot of two normal parameters correlated
+			<br>with "Decay" method, rank correlation 0.7
+		</p>
+		<img src="images/decay.gif"> 
+	</td>
+</table>
+
+<H3><A NAME="queryActions">Query Actions</A></H3>
+
+<p>Queries return information about the sample space. This may come in the form of returning 
+    information about the parameters (e.g., mean, standard deviation, correlation, rank correlation) 
+    or it may involve the generation of regression points for some function involving multiple parameters. 
+    One thing remains constant among queries: they do not alter the sample space in any way. This means 
+    they do not add, remove, or alter any of the parameters. Some of the queries result in answers being 
+    added to a csv type file (i.e., all those requesting a file name).  Others will be provided on screen 
+    and also added to an output file describing the SUE run.  This file will also include any error messages.
+    <br />The following is a list of the query actions and examples. 
+
+</p>
+
+<p>
+	<b>StandardDeviation(</b><i>parameterName</i><b>)</b>
+	This action returns the standard deviation of the defined sample space parameter <i>parameterName</i>.  Example:
+	<br><tt>StandardDeviation(LiveMax)</tt>
+</p>
+
+<p>
+	<b>Mean(</b><i>parameterName</i><b>)</b>
+	<br>This action returns the mean value of the defined sample space parameter <i>parameterName</i>.  Example:
+	<br><tt>Mean(LiveMax)</tt>
+</p>
+
+<p>
+	<b>Median(</b><i>parameterName</i><b>)</b>
+	<br>This action returns the median value of the defined sample space parameter <i>parameterName</i>.  Example:
+	<br><tt>Median(LiveMax)</tt>
+</p>
+
+<p>
+	<b>Correlation(</b><i>param1, param2</i><b>)</b>
+	<br>This action returns the correlation coefficient of the defined sample space parameters <i>param1</i> and <i>param2</i>.  Example:
+	<br><tt>Correlation(LiveMax, b2)</tt>
+</p>
+
+<p>
+	<b>RankCorrelation(</b><i>param1, param2</i><b>)</b>
+	<br>This action returns the rank correlation coefficient of the defined sample space parameters <i>param1</i> and <i>param2</i>.  
+	Example:
+	<br><tt>RankCorrelation(LiveMax, b2)</tt>
+</p>
+
+<p>
+	<b>PercentileBounds(</b><i>parameterName, percentile</i><b>)</b>
+	<br>This action returns the two values that enclose the middle <i>percentile</i> percent of the values in sample 
+	space parameter <i>parameterName</i>.  Note that this may involve a weighted average of two samples for both the 
+	upper and lower bound - so the values returned may or may not actually occur in the sample space.  Example:
+	<br><tt>PercentileBounds(LiveMax, 50.5)</tt>
+</p>
+
+<p>
+	<b>ValsToCSV(</b><i>paramNameList, "fileName"</i><b>)</b>
+	<br>This action sends the values of the sample space parameters in paramNameList to a .csv (comma separated value) file named 
+	<i>"fileName".  ParamNameList</i> must be a series of defined parameter names, separated by commas.  <i>fileName</i> 
+	must be enclosed in quotation marks and should end in ".csv" since it will be a comma separated value file 
+	(intended to be opened with Excel).  Example:
+	<br><tt>ValsToCSV(LiveMax, b1, b2, Var1, "vals.csv")</tt>
+</p>
+
+<p>
+	<b>Histogramize(</b><i>paramName, boxes, excludedTailPercent, "fileName"</i><b>)</b>
+	<br>This action creates a histogram of the valid sample space parameter <i>paramName</i>.  
+	The histogram comes in the form of a .csv file named <i>filename</i> that should end in ".csv" and is intended to be 
+	viewed with Excel.  <i>Boxes</i> is the number of boxes/bins to use in the histogram.  <i>ExcludedTailPercent</i> is 
+	the percent of extreme values in <i>paramName</i> to leave out of the histogram.  For example, if <i>excludedTailPercent</i> 
+	were 5, the histogram would not account for the lowest 2.5% or the highest 2.5% of the values in <i>paramName</i>.  
+	<i>ExcludedTailPercent</i> should be set to 0 for most cases - however, when a parameter has very long, sparse tails, 
+	leaving out a small portion of the tail values can make the histogram show more detail about more densely populated regions.  
+	Obviously, <i>excludedTailPercent</i> must be between 0 and 100.  Examples:
+	<br><tt>Histogramize(VarIAblE, 20, 0, "histWithTails.csv")
+	<br>Histogramize(VarIAblE, 20, 5, "histMinus5%Tails.csv")</tt>
+</p>
+
+<p>
+	<b>Regression(</b><i><A HREF="#validExpressions">functionOfParamsAndT</A>, tStart, tFinish, steps, "fileName"</i><b>)</b>
+	<br>The regression query does not create a regression per se.  However, it can be used to evaluate the uncertainty of a 
+    regression equation.  It does this by evaluating the regression’s uncertainty given parameter uncertainty at fixed intervals 
+    of the free-variable (i.e., independent variable) that drives the regression. To create the fixed intervals one specifies the 
+    range of the free-variable to be examined and the number of steps to be evaluated. Specifically, this action creates a comma 
+    separated value file named <i>fileName</i> with the raw results of performing regression 
+	equation <i><A HREF="#validExpressions">functionOfParamsAndT</A></i> on the sample space parameters mentioned in 
+	<i><A HREF="#validExpressions">functionOfParamsAndT</i></A>.  <A HREF="#validExpressions">
+	<i>functionOfParamsAndT</i></A> can be any well-formed function that involves the free variable "T".  "T" is the hard-wired 
+	name of the free-variable (i.e., independent variable) in a regression equation and no other name will be accepted.  Regression works by evaluating 
+	<i>functionOfParamsAndT</i> for each set of parameter samples at steps + 1 discrete (and evenly spaced) T-values, 
+	starting at <i>tStart</i> and finishing at <i>tFinish</i>.  Upon completion of Regression a file specified by the user, <i>filename</i> will be created. It will have two columns; 
+	the first will have free-variable values and the second will have solutions to <i>functionOfParamsAndT</i> for those 
+	free-variable values.  With a large sample space size and a large steps value, this file can be very large and take a long 
+	time to create.  Since Excel will not open entire files with more than 65,536 rows, it is senseless to have a product of 
+	<i>sampleSpaceSize</i> and (<i>steps</i> + 1) > 65,000 unless you have another graphics program that reads larger .csv files.  
+	Example: 
+	<br />This example examines the uncertainty in a Chapman-Richards type regression that predicts the live biomass that is a 
+    function of three parameters (LiveMax, b1, and b2).  It does so for a range of ages from 0 to 400 years at intervals of 50 years.  
+    The output is saved in a file called regress.csv.
+    <br /><tt>Regression(LiveMax * (1-e^(-b1*t))^b2, 0, 400, 50, "regress.csv")</tt>
+</p>
+
+<p>
+	<b>RegressionPercentiles(</b><i><A HREF="#validExpressions">functionOfParamsAndT</A>, tStart, tFinish, steps, (percentiles), "fileName"</i><b>)</b>
+	<br>This action is just as Regression only it takes another input - a list of comma-separated percentiles, <i>percentiles</i>, 
+	enclosed in parentheses.  Rather than return the computed results for each set of parameter samples for each T-value, 
+	the enclosing values (at each T-value) for each percentile requested are returned in the .csv file.  For example, 
+	a value of 20 in the percentile list requests the values that enclose the middle 20% of all result values at each T-value.  
+	A value of 0 in the percentile list requests the median for each T-value.  Though <i>RegressionPercentiles</i> involves many 
+	more calculations (due to calculating the percentiles) than Regression, the output file may be much smaller.  It therefore 
+	can accommodate larger sample space sizes in conjunction with large values of steps.  Furthermore, with well-chosen 
+	percentiles values, RegressionPercentiles can give a better picture of the distribution of values in the regression results.  
+	Example:
+	<br><tt>RegressionPercentiles( LiveMax * (1-e^(-b1*t))^b2, 0, 400, 50, (0,25,50,75.0,100), "regressPercentiles.csv")</tt>
+</p>
+
+<H3><A NAME="validParamNames">Valid Parameter Names:</A></H3>
+
+<p>
+	Parameter names must start with a letter, but can contain numbers and other symbols after the first character.  
+	No action keywords (normal, regression, etc) or constant names (e and pi) may be used as parameter names.  
+	Additionally, the name "T" is reserved for the free variable name in regression equations.
+</p>
+
+<H3><A NAME="validExpressions">Valid Expressions:</A></H3>
+
+<p>
+	Assignment expressions and regression expressions are identical except in one regard: 
+	regression functions should involve the free-variable "T" and assignment functions should not.  
+	Outside of these restrictions, a valid expression can be any well-formed expression involving defined 
+	parameter names, numbers, constants (e and pi), parentheses, +, -, *, /, ^, log10, and ln.
+</p>
+
+<hr>
+
+<H2><A NAME="sample">Example File</A></H2>
+
+<p>
+	The following is a compilation of the <A HREF="#inputFile">examples</A> used to define the actions.  
+	It can be copied and pasted into a text file for use by SUE.
+</p>
+
+<pre>
+>------------------------------------------------------------------------
+>A sample file for SUE---------------------------------------------------
+>------------------------------------------------------------------------
+
+Seed 1283
+
+SampleSpaceSize 1000
+
+Var1 = Uniform(4, 4.9)
+LiveMax = Triangular(96.1, 99, 100)
+VarIAblE = NegativeExponential(5.1, 3.2)
+Var = Normal(3, 1)
+b1, b2 = NormalBivariates(.5, .015, .001, 2, .1)
+b3 = ln(LiveMax * (1-e^(-b1))^b2)
+rankCorrelate(LiveMax, b2, -.78, grow)
+StandardDeviation(LiveMax)
+Mean(LiveMax)
+Median(LiveMax)
+Correlation(LiveMax, b2)
+RankCorrelation(LiveMax, b2)
+PercentileBounds(LiveMax, 50.5)
+ValsToCSV(LiveMax, b1, b2, Var1, "vals.csv")
+Histogramize(VarIAblE, 20, 0, "histWithTails.csv")
+Histogramize(VarIAblE, 20, 5, "histMinus5%Tails.csv")
+Regression(LiveMax * (1-e^(-b1*T))^b2, 0, 400, 50, "regress.csv")
+RegressionPercentiles( LiveMax * (1-e^(-b1*t))^b2, 0, 400, 50, (0,25,50,75.0,100), "regressPercentiles.csv")
+</pre>
+
+<hr>
+
+<H2><A NAME="troubleShooting">Trouble-shooting:</A></H2>
+
+<p>
+    The SUE input interface will try to catch possible errors as the information is entered.  
+    For example, if the lower bound is higher than the upper bound, then the interface should indicate that 
+    this is not allowed. However, it may not catch all possible errors.  Moreover, if one edits the preview files, 
+    then the interface cannot check for inconsistencies and other kinds of errors. Common questions related to errors 
+    you might encounter are below. 
+</p>
+
+<p>
+	Q: Why does SUE tell me there's an error opening a file?
+	<br>A: Most likely, it's Excel's fault.  If a file is open in Excel, it can't be written to from SUE.  
+	You must close the file in Excel and re-open it once SUE is done writing to it.
+</p>
+
+<p>
+	Q: Why is it taking SO long?!
+	<br>A: Certain actions may involve MANY computer operations with large sample space size.  
+	Regression and RegressionPercentiles can be particularly expensive this way.  
+	Additionally, writing to a file is a relatively slow process, so actions that attempt to create large files may take a long time.  
+	Either wait it out, decrease the sample space size, or chose your actions carefully.
+</p>
+
+<p>
+	Q: What does it mean if SUE tells me there has been a math error?
+	<br>A: Math errors occur when SUE attempts an illegal or undefined math operation.  
+	These can be encountered in one of two places: defining a parameter as a function of other parameters or in a regression function.  
+	If we tried to define "var1" as 
+	<tt>var1 = var2 / 0</tt> 
+	we would clearly have a problem; regardless of what "var2" is, we would have division by zero.  
+	While this example may be trivially obvious, there do exist more insidious possibilities.  
+	With the abstraction of variable names representing a range and distribution of possible numbers, comes the surprising ease 
+	of generating math errors.  Consider the following:
+	<br><tt>b1, b2 = NormalBivariates(.5, .015, .008, 2, .1)
+	<br>LiveMax = Triangular(96.1, 99, 100)
+	<br>Regression(LiveMax * (1-e^(-b1*T))^b2, 0, 400, 50, "regress.csv")</tt>
+	<br>The above differs from commands entered as <A HREF="#sample">examples</A> only in that "b1" has a larger standard deviation.  
+	This larger standard deviation, however, makes it more likely that "b1" will be a negative number.  
+	The regression equation would then negate that number (thus making it positive), multiply it by positive T, 
+	and subtract e to that power from one.  E to any positive power is greater than 1.  
+	Thus, we would end up with a negative number to a fractional (provided "b2" wasn't set to an integer) power, 
+	which is undefined.  What makes this even more complicated is that this problem may or may not occur, depending on 
+	the sample space size and the seed.  If we only generate a sample space of size 4, chances are good that "b1" 
+	will have all positive samples and thus, no math error will occur.
+</p>
+
+<p>
+	Q: Why does SUE tell me it can't find a parameter?
+	<br>A: Within an input file, references to parameters can only occur after the parameter has been defined.  
+	Also beware that parameter names are case-sensitive.  So if only "LiveMax" is defined, SUE will be unable to find a parameter 
+	"livemax".
+</p>
+
+<p>
+	Q: What happens if I run an input file that causes SUE to create a file and then run another (or the same) input 
+	file that causes a file of the same name to be created?
+	<br>A: The first file will be overwritten; user beware.
+</p>
+
+</asp:Content>

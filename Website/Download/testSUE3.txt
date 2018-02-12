@@ -1,0 +1,11 @@
+>-------------------------------------------------
+>Stochastic Uncertainty Estimator (SUE) Input file
+>Run built on 6/5/2017 12:00:00 AM  17:31:20.5746431
+>-------------------------------------------------
+
+Seed 1283
+
+SampleSpaceSize 10000
+
+ggg = Normal(5, 7)
+Mean(ggg)

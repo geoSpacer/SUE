@@ -1,0 +1,27 @@
+>-------------------------------------------------
+>Stochastic Uncertainty Estimator (SUE) Input file
+>Run built on 6/15/2017 12:00:00 AM  17:19:08.4483209
+>-------------------------------------------------
+
+Seed 1283
+
+SampleSpaceSize 10000
+
+Var1 = Uniform(4, 4.9)
+LiveMax = Triangular(96.1, 99, 100)
+VarIAblE = NegativeExponential(5.1, 3.2)
+Var = Normal(3, 1)
+b1, b2 = NormalBivariates(.5, .015, .001, 2, .1)
+b3 = ln(LiveMax * (1-e^(-b1))^b2)
+rankCorrelate(LiveMax, b2, -.78, grow)
+StandardDeviation(LiveMax)
+Mean(LiveMax)
+Median(LiveMax)
+Correlation(LiveMax, b2)
+RankCorrelation(LiveMax, b2)
+PercentileBounds(LiveMax, 50.5)
+ValsToCSV(LiveMax, b1, b2, Var1, "vals.csv")
+Histogramize(VarIAblE, 20, 0, "histWithTails.csv")
+Histogramize(VarIAblE, 20, 5, "histMinus5%Tails.csv")
+Regression(LiveMax * (1-e^(-b1*T))^b2, 0, 400, 50, "regress.csv")
+RegressionPercentiles( LiveMax * (1-e^(-b1*t))^b2, 0, 400, 50, (0,25,50,75.0,100), "regressPercentiles.csv")

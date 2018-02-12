@@ -1,0 +1,12 @@
+>-------------------------------------------------
+>Stochastic Uncertainty Estimator (SUE) Input file
+>Run built on 6/5/2017 12:00:00 AM  17:28:09.8651361
+>-------------------------------------------------
+
+Seed 1283
+
+SampleSpaceSize 10000
+
+var5 = Uniform(4, 8)
+>ugg
+Median(var5)
